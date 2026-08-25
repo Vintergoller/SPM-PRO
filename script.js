@@ -102,3 +102,136 @@ function type() {
 if (typewriterElement) {
     setTimeout(type, 1000);
 }
+
+// НАСТОЯЩАЯ ОТПРАВКА ФОРМЫ НА БЭКЕНД БЕЗ ПЕРЕЗАГРУЗКИ СТРАНИЦЫ
+const form = document.getElementById("contactForm");
+
+if (form) {
+    form.addEventListener("submit", async function(event) {
+        event.preventDefault(); // Запрещаем стандартную перезагрузку страницы
+        
+        const button = form.querySelector("button[type='submit']");
+        const originalButtonText = button.textContent;
+        button.textContent = "Отправка ТЗ..."; // Меняем текст кнопки на время запроса
+        button.disabled = true;
+
+        const data = new FormData(form);
+        
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                // Если бэкенд успешно принял письмо
+                alert("✨ Проект успешно принят в работу! Наш главный инженер свяжется с вами в течение 30 минут для согласования сметы.");
+                form.reset(); // Очищаем поля формы
+            } else {
+                alert("Ошибка сервера. Пожалуйста, свяжитесь с нами напрямую по email: info@spm-pro.ru");
+            }
+        } catch (error) {
+            alert("Не удалось отправить заявку. Проверьте подключение к интернету.");
+        } finally {
+            // Возвращаем кнопку в исходное состояние
+            button.textContent = originalButtonText;
+            button.disabled = false;
+        }
+    });
+}
+
+const canvas = document.getElementById('particleCanvas');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const mouse = { x: null, y: null, radius: 120 }; // Радиус отталкивания точек
+
+    function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        initParticles();
+    }
+
+    class Particle {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.baseX = x; // Точка, куда частица всегда возвращается
+            this.baseY = y;
+            this.size = 1.5; // Размер золотой точки
+            this.density = (Math.random() * 30) + 15; // Скорость возвращения на место
+        }
+        draw() {
+            ctx.fillStyle = 'rgba(212, 175, 55, 0.45)'; // Благородный золотой цвет частиц
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.fill();
+        }
+        update() {
+            let dx = mouse.x - this.x;
+            let dy = mouse.y - this.y;
+            let distance = Math.hypot(dx, dy);
+            let forceDirectionX = dx / distance;
+            let forceDirectionY = dy / distance;
+            
+            // Расчет силы отталкивания от курсора
+            if (distance < mouse.radius) {
+                let force = (mouse.radius - distance) / mouse.radius;
+                let directionX = forceDirectionX * force * this.density;
+                let directionY = forceDirectionY * force * this.density;
+                this.x -= directionX;
+                this.y -= directionY;
+            } else {
+                // Плавное возвращение домой, если мышь далеко
+                if (this.x !== this.baseX) {
+                    let dxBase = this.x - this.baseX;
+                    this.x -= dxBase / 10;
+                }
+                if (this.y !== this.baseY) {
+                    let dyBase = this.y - this.baseY;
+                    this.y -= dyBase / 10;
+                }
+            }
+        }
+    }
+
+    function initParticles() {
+        particles = [];
+        // Создаем аккуратную сетку шагом в 45 пикселей
+        const gap = 45; 
+        for (let y = 0; y < canvas.height; y += gap) {
+            for (let x = 0; x < canvas.width; x += gap) {
+                particles.push(new Particle(x, y));
+            }
+        }
+    }
+
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].draw();
+            particles[i].update();
+        }
+        requestAnimationFrame(animateParticles);
+    }
+
+    // Слежение за мышью именно внутри секции Hero
+    const heroSec = document.getElementById('heroSection');
+    if (heroSec) {
+        heroSec.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        heroSec.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    animateParticles();
+}
