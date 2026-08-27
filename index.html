@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPM PRO — Промышленный Электромонтаж и Прокладка Кабеля</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link
+        href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=Manrope:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Эффект свечения на заднем плане -->
+    <div class="bg-glow" id="bgGlow"></div>
+
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo-spm">
+                SPM <span class="badge-pro">PRO</span>
+            </a>
+
+
+
+            <nav class="nav" id="navMenu">
+                <a href="#about" class="nav-link" onclick="toggleMenu()">О компании</a>
+                <a href="#mission" class="nav-link" onclick="toggleMenu()">Миссия</a>
+                <a href="#sectors" class="nav-link" onclick="toggleMenu()">Отрасли</a>
+                <a href="#services" class="nav-link" onclick="toggleMenu()">Услуги</a>
+                <a href="#projects" class="nav-link" onclick="toggleMenu()">Проекты</a>
+                <a href="#pricing" class="nav-link" onclick="toggleMenu()">Стоимость</a>
+            </nav>
+            <a href="#contact" class="btn btn-sm header-btn">Заказать расчет</a>
+
+            <button class="burger-menu" id="burgerBtn" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <!-- Главный экран с интерактивным фоном -->
+    <section class="hero " id="heroSection section">
+        <!-- ВОТ ЭТОТ ТЕГ ОБЯЗАТЕЛЬНО ДОЛЖЕН БЫТЬ ТУТ, ЧТОБЫ ПОЯВИЛСЯ ФОН: -->
+        <div class="hero-bg-layer" id="heroBg"></div>
+        <canvas id="particleCanvas"></canvas>
+        <div class="container hero-content fx-fade-up">
+            <div class="hero-badge">Промышленный электромонтаж • Допуск СРО</div>
+            <h1 class="hero-title">
+                SPM PRO: <span id="typewriter"></span><span class="cursor-blink">|</span>
+            </h1>
+            <p class="hero-subtitle">Профессиональная прокладка силовых кабелей, сборка лотков и запуск энергосистем на
+                предприятиях «под ключ» с гарантией по договору.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn">Вызвать инженера на объект</a>
+                <a href="#services" class="btn btn-secondary">Наши направления</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- О нас / Цифры -->
+    <section id="about" class="about section">
+        <div class="container grid about-grid">
+            <div class="about-info fx-fade-up">
+                <h2 class="section-title">Работаем строго по договору, ПУЭ и СНиП</h2>
+                <p class="section-text">Компания SPM PRO специализируется на масштабных электромонтажных работах для
+                    производств, заводов, складских комплексов и цехов. Располагаем собственным парком профессионального
+                    оборудования, квалифицированными монтажниками с допусками по электробезопасности и инженерами
+                    технического надзора. Сдаем объекты вовремя и без замечаний от проверяющих органов.</p>
+            </div>
+            <div class="stats-grid fx-fade-up">
+
+                <!-- Карточка 1 -->
+                <div class="stat-card">
+                    <!-- Живая иконка молнии -->
+                    <div class="stat-energy-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="#d4af37" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3 class="stat-num">50+ км</h3>
+                    <p class="stat-desc">Проложено кабельных трасс</p>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="stat-card">
+                    <!-- Живая иконка молнии -->
+                    <div class="stat-energy-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="#d4af37" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3 class="stat-num">100%</h3>
+                    <p class="stat-desc">Соблюдение сроков и СНиП</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 1. ИСТОРИЯ И МИССИЯ -->
+    <section id="mission" class="mission section">
+        <div class="mission-bg-symbol">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                <!-- Высоковольтная стрела-молния -->
+                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="rgba(212, 175, 55, 0.015)" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+        <div class="container">
+            <h2 class="section-title fx-fade-up">История и миссия</h2>
+
+            <!-- Обертка для карточек, которая станет таймлайном -->
+            <div class="grid mission-grid">
+
+                <!-- ВЕРХНИЙ УЗЕЛ: Силовой распределительный щиток -->
+                <div class="timeline-power-cabinet">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                        <rect x="4" y="2" width="16" height="20" rx="2" stroke="#d4af37" stroke-width="1.5" />
+                        <path d="M12 6V10M9 8H15" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M7 14H10M7 17H13" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <circle cx="16" cy="15" r="1.5" fill="#d4af37" class="cabinet-indicator" />
+                    </svg>
+                </div>
+
+                <!-- ВАШИ РОДНЫЕ КАРТОЧКИ (БЕЗ ИЗМЕНЕНИЙ) -->
+                <div class="mission-card fx-fade-up">
+                    <div class="mission-date">Миссия</div>
+                    <h3 class="mission-title-card">Бесперебойная энергия производств</h3>
+                    <p class="mission-text">Наша цель — строить отказоустойчивую энергетическую инфраструктуру для
+                        непрерывной и безопасной работы заводов.</p>
+                </div>
+                <div class="mission-card fx-fade-up">
+                    <div class="mission-date">2018</div>
+                    <h3 class="mission-title-card">Основание компании</h3>
+                    <p class="mission-text">Сформированы первые бригады монтажников, успешно запущен первый литейный цех
+                        в Подмосковье.</p>
+                </div>
+                <div class="mission-card fx-fade-up">
+                    <div class="mission-date">2022</div>
+                    <h3 class="mission-title-card">Выход на федеральный уровень</h3>
+                    <p class="mission-text">Вступление в СРО, закупка парка спецтехники и заключение контрактов с
+                        логистическими комплексами.</p>
+                </div>
+                <div class="mission-card fx-fade-up">
+                    <div class="mission-date">Сегодня</div>
+                    <h3 class="mission-title-card">Технологическое лидерство</h3>
+                    <p class="mission-text">Более 50 км кабельных трасс. SPM PRO — синоним железной надежности в
+                        промышленном электромонтаже.</p>
+                </div>
+
+                <!-- НИЖНИЙ УЗЕЛ: Контур заземления кабельной сети -->
+                <div class="timeline-ground-terminal">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                        <path d="M12 3V15" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M6 15H18" stroke="#d4af37" stroke-width="2" stroke-linecap="round" />
+                        <path d="M9 18H15" stroke="#d4af37" stroke-width="2" stroke-linecap="round" />
+                        <path d="M11 21H13" stroke="#d4af37" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 2. ПРОФЕССИОНАЛЬНЫЕ КОМПЕТЕНЦИИ И РЕСУРСЫ -->
+    <section id="competences" class="competences section">
+        <div class="container">
+            <h2 class="section-title fx-fade-up">Компетенции и ресурсы</h2>
+            <div class="grid competences-grid">
+                <div class="comp-card fx-fade-up">
+                    <!-- Заменили эмодзи на стильный номер -->
+                    <div class="comp-icon">01</div>
+                    <h3 class="comp-title">Инженерный корпус</h3>
+                    <p class="comp-text">В компании работают 45 электромонтажников, 5 инженерно-технических работников и
+                        3 управленца, обладающие опытом масштабных проектов в промышленности и строительстве.</p>
+                </div>
+                <div class="comp-card fx-fade-up">
+                    <div class="comp-icon">02</div>
+                    <h3 class="comp-title">Техническая оснащенность</h3>
+                    <p class="comp-text">Собственный парк лицензированного оборудования: кабелеподъемники,
+                        гидравлические прессы и сертифицированный инструмент.</p>
+                </div>
+                <div class="comp-card fx-fade-up">
+                    <div class="comp-icon">03</div>
+                    <h3 class="comp-title">Масштабные объемы</h3>
+                    <p class="comp-text">Готовы к оперативной мобилизации на объект и укладке до 2 000 пог. м кабельных
+                        лотков в неделю без потери качества.</p>
+                </div>
+                <div class="comp-card fx-fade-up">
+                    <div class="comp-icon">04</div>
+                    <h3 class="comp-title">Юридическая чистота</h3>
+                    <p class="comp-text">Действующий допуск СРО. Полное страхование рисков на объектах заказчика и
+                        предоставление исполнительной документации.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ОСНОВНЫЕ ОТРАСЛИ ДЕЯТЕЛЬНОСТИ -->
+    <section id="sectors" class="sectors section">
+        <div class="container">
+            <h2 class="section-title fx-fade-up">Отрасли деятельности</h2>
+            <div class="grid sectors-grid">
+                <div class="sector-card fx-fade-up">
+                    <div class="sector-num">01</div>
+                    <h3 class="sector-name">Нефтегазовый сектор</h3>
+                    <p class="sector-text">Монтаж взрывозащищенного оборудования и прокладка магистральных кабельных
+                        трасс на объектах добычи и переработки.</p>
+                </div>
+                <div class="sector-card fx-fade-up">
+                    <div class="sector-num">02</div>
+                    <h3 class="sector-name">Энергетика и Металлургия</h3>
+                    <p class="sector-text">Электромонтажные работы на подстанциях, ТЭЦ и в горячих цехах
+                        металлургических комбинатов.</p>
+                </div>
+                <div class="sector-card fx-fade-up">
+                    <div class="sector-num">03</div>
+                    <h3 class="sector-name">Химическая промышленность</h3>
+                    <p class="sector-text">Проектирование и монтаж систем автоматизации в условиях агрессивных сред и
+                        строгих экологических норм.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. НАПРАВЛЕНИЯ ТОВАРОВ И УСЛУГ -->
+    <section id="services" class="services section">
+        <div class="container">
+            <h2 class="section-title fx-fade-up">Направления товаров и услуг</h2>
+            <div class="grid services-grid">
+                <div class="service-card fx-fade-up">
+                    <div class="service-img-wrapper">
+                        <img src="img/service1.webp" alt="Монтаж кабельных лотков" class="service-img">
+                    </div>
+                    <div class="service-img-caption service-badge">Кабельные несущие системы</div>
+                    <h3 class="service-title">Монтаж кабельных лотков</h3>
+                    <p class="service-text">Сборка и фиксация металлических конструкций (листовых, лестничных,
+                        проволочных) на эстакадах и в цехах на любой высоте.</p>
+                </div>
+                <div class="service-card fx-fade-up">
+                    <div class="service-img-wrapper">
+                        <img src="img/service2.jpg" alt="Прокладка кабеля" class="service-img">
+                    </div>
+                    <div class="service-img-caption service-badge">Силовые распределительные сети</div>
+                    <h3 class="service-title">Прокладка силового кабеля</h3>
+                    <p class="service-text">Протяжка кабелей любого сечения по лоткам, в штробах и траншеях. Концевая
+                        разделка, монтаж муфт и подключение к оборудованию.</p>
+                </div>
+                <div class="service-card fx-fade-up">
+                    <div class="service-img-wrapper">
+                        <img src="img/service3.jpg" alt="Прокладка кабеля" class="service-img">
+                    </div>
+                    <div class="service-img-caption service-badge">КИПиА</div>
+                    <h3 class="service-title">Монтаж КИПиА, волоконно-оптической линии связи</h3>
+                    <p class="service-text">Профессиональное проектирование, прокладка и пусконаладка систем
+                        автоматизации и волоконно-оптических линий связи для стабильной работы вашего предприятия.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ РЕАЛИЗОВАННЫХ ПРОЕКТОВ (С КОРРЕКТНОЙ СЕТКОЙ И ДАННЫМИ ГАЛЕРЕИ) -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <h2 class="section-title fx-fade-up">Реализованные проекты</h2>
+
+            <!-- Один общий, чистый контейнер для всех карточек -->
+            <div class="grid projects-grid">
+
+                <!-- Проект 1: Нефтегазовая сфера -->
+                <div class="project-card" onclick="openProjectModal(this)"
+                    data-title="Строительство кабельных систем на объектах ГРК" data-badge="ООО «Черногорская ГРК»"
+                    data-volume="12 км силовых линий" data-deadline="1 год" data-security="V группа допуска"
+                    data-price="76 000 000 ₽" data-address="Красноярский край, г. Норильск"
+                    data-images="img/project-image-GRK.webp,img/image-work-norilsk.png"
+                    data-desc="Выполнен комплекс работ по устройству энергетической инфраструктуры горно-обогатительного комплекса. Произведена сборка усиленных несущих металлоконструкций, осуществлена скоростная укладка магистральных трасс и монтаж КТП. Объект успешно подключен к сети и передан технадзору заказчика без замечаний.">
+                    <div class="project-img-wrapper">
+                        <span class="project-badge">ООО «Черногорская ГРК»</span>
+                        <img src="img/project-image-GRK.webp" alt="Монтаж кабельных трасс" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Комплекс электромонтажных работ, комплексная автоматизация</h3>
+                        <p class="project-desc">Сборка кабельных лотков, прокладка кабеля, пусконаладочные работы.</p>
+                    </div>
+                </div>
+
+                <!-- Проект 2: Энергетика и Металлургия -->
+                <div class="project-card" onclick="openProjectModal(this)"
+                    data-title="Проект модернизации электроснабжения газоочистной установки и реагентного цеха"
+                    data-badge="УГМК. АО «Челябинский цинковый завод»" data-volume="Монтаж ГРЩ и 12 км трасс"
+                    data-deadline="6 мес." data-security="V группа допуска" data-price="24 000 000 ₽"
+                    data-address="г. Челябинск, Свердловский тракт"
+                    data-images="img/project-image-zinc.jpg,img/image-work-zinc-1.png,img/image-work-zinc-2.png, img/image-work-zinc-3.png"
+                    data-desc="Сложные шеф-монтажные работы в условиях действующего металлургического производства. Выполнена замена силовых вводов, монтаж главных распределительных щитов повышенной надежности и подключение технологического станочного парка цеха.">
+                    <div class="project-img-wrapper">
+                        <span class="project-badge">УГМК. АО «Челябинский цинковый завод»</span>
+                        <img src="img/project-image-zinc.jpg" alt="Монтаж кабельных трасс" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Комплекс электромонтажных работ, комплексная автоматизация</h3>
+                        <p class="project-desc">Сборка кабельных лотков, монтаж КТП и пусконаладочные работы в главном
+                            цеху.</p>
+                    </div>
+                </div>
+
+                <!-- Проект 3: Химическая промышленность и строительство -->
+                <div class="project-card" onclick="openProjectModal(this)"
+                    data-title="Монтаж систем автоматизации и экранированных сетей"
+                    data-badge="Ростех. АО «Уральский приборостроительный завод»" data-volume="12 000 пог. м кабеля"
+                    data-deadline="6 мес." data-security="IV группа допуска" data-price="12 000 000 ₽"
+                    data-address="г. Екатеринбург, ул. Горького"
+                    data-images="img/project-image-rosteh.jpg,img/image-work-instumentalmaking.png"
+                    data-desc="Проектирование и укладка кабельных систем автоматизации (АСУ ТП) для высокоточных производственных линий. Использован специализированный экранированный кабель для защиты от электромагнитных помех и наводок промышленного оборудования.">
+                    <div class="project-img-wrapper">
+                        <span class="project-badge">Ростех. АО «Уральский приборостроительный завод»</span>
+                        <img src="img/project-image-rosteh.jpg" alt="Монтаж кабельных трасс" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Комплекс электромонтажных работ, комплексная автоматизация</h3>
+                        <p class="project-desc">Сборка кабельных лотков, монтаж КТП и пусконаладочные работы в главном
+                            цеху.</p>
+                    </div>
+                </div>
+
+                <!-- Проект 4: Гражданское строительство (Газпромнефть) -->
+                <div class="project-card" onclick="openProjectModal(this)"
+                    data-title="Внутреннее электроснабжение офисного комплекса"
+                    data-badge="БЦ «Гринплекс» офис Газпромнефть-Центр»" data-volume="Монтаж ГРЩ, ВРУ, сетей"
+                    data-deadline="2-3 мес." data-security="IV группа допуска" data-price="5 500 000 ₽"
+                    data-address="г. Челябинск, ул. Российская"
+                    data-images="img/project-image-grinpleks.webp,img/image-working-gazprom.png"
+                    data-desc="Комплексный электромонтаж административно-офисных площадей. Разводка силовых и слаботочных сетей, обеспечение категорийной отказоустойчивости серверных помещений, монтаж систем аварийного и бесперебойного электроснабжения.">
+                    <div class="project-img-wrapper">
+                        <span class="project-badge">Бизнес центр «Гринплекс» офис Газпромнефть-Центр»</span>
+                        <img src="img/project-image-grinpleks.webp" alt="Монтаж кабельных трасс" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Комплекс электромонтажных работ.</h3>
+                        <p class="project-desc">прокладка кабеля, монтаж лотка.</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- СТАРИННЫЙ ОРИЕНТИРОВОЧНЫЙ ПРАЙС -->
+    <section id="pricing" class="pricing section">
+        <div class="container">
+            <h2 class="section-title fx-fade-up">Ориентировочная стоимость</h2>
+            <div class="grid pricing-grid">
+                <div class="price-card fx-fade-up">
+                    <h3 class="price-name">Монтаж КИПиА и ВОЛС</h3>
+                    <div class="price-value">от 45 000 ₽ <span style="font-size: 16px; color: #64748b;">/ проект</span>
+                    </div>
+                    <p class="price-desc">Проектирование, прокладка магистралей, установка приборов и пусконаладка
+                        систем автоматизации.</p>
+                    <ul class="price-features">
+                        <li>Сварка оптического волокна</li>
+                        <li>Монтаж датчиков и шкафов</li>
+                        <li>Тестирование рефлектометром</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary btn-block">Запросить смету</a>
+                </div>
+                <div class="price-card fx-fade-up">
+                    <h3 class="price-name">Монтаж лотков</h3>
+                    <div class="price-value">от 250 ₽ <span style="font-size: 16px; color: #64748b;">/ пог. м</span>
+                    </div>
+                    <p class="price-desc">Включает разметку трассы, установку кронштейнов, подвесов и сборку секций.</p>
+                    <ul class="price-features">
+                        <li>Листовые и перфорированные</li>
+                        <li>Лестничные (тяжелые трассы)</li>
+                        <li>Работа на высоте до 12м</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary btn-block">Запросить смету</a>
+                </div>
+                <div class="price-card featured fx-fade-up">
+                    <div class="badge-popular">b2b выбор</div>
+                    <h3 class="price-name">Прокладка кабеля</h3>
+                    <div class="price-value">от 180 ₽ <span style="font-size: 16px; color: #0f172a;">/ пог. m</span>
+                    </div>
+                    <p class="price-desc">Зависит от сечения кабеля (до и выше 16 мм²) и условий протяжки трассы.</p>
+                    <ul class="price-features">
+                        <li>Протяжка по готовым лоткам</li>
+                        <li>Укладка в гофру / трубы</li>
+                        <li>Подключение к щитам и ВРУ</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-block">Запросить смету</a>
+    </section>
+
+    <!-- Форма заявки -->
+    <section id="contact" class="contact section">
+        <div class="container grid contact-grid">
+            <div class="fx-fade-up">
+                <h2 class="section-title">Заказать расчет сметы</h2>
+                <p class="section-text">Пришлите техническое задание или проект на почту. Бесплатно
+                    приедем на ваш
+                    объект для проведения замеров и составления предварительной сметы за 24 часа.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:info@spm-pro.ru" class="contact-link">info@spm-pro.ru</a>
+                    <a href="tel:+79998887766" class="contact-link">+7 (999) 888-77-66</a>
+                </div>
+            </div>
+            <!-- Измененная форма с подключенным бесплатным бэкендом -->
+            <form class="glass-form fx-fade-up" action="https://formspree.io/f/xkjwdnov" method="POST" id="contactForm">
+                <!-- Поле для имени -->
+                <input type="text" name="name" class="input" placeholder="Название компании / Ваше имя" required>
+
+                <!-- Поле для телефона -->
+                <input type="tel" name="phone" class="input" placeholder="Телефон для связи" required>
+
+                <!-- Поле для текста ТЗ -->
+                <textarea name="message" class="input textarea"
+                    placeholder="Опишите объемы работ (например: монтаж 400м лотка, протяжка кабеля ВВГ 4х25)" rows="4"
+                    required></textarea>
+
+                <button type="submit" class="btn btn-block">Получить коммерческое
+                    предложение</button>
+            </form>
+
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 SPM PRO. Все права защищены. Электромонтажные работы на промышленных
+                объектах.</p>
+
+        </div>
+    </footer>
+
+
+    <!-- ТЕГ КАРТOЧКИ МЕДПАСПОРТА (Поместите строго перед закрывающим тегом </body>) -->
+    <div id="projectModal" class="project-modal">
+        <div class="project-modal-overlay" onclick="closeProjectModal()"></div>
+        <div class="project-modal-content">
+            <button class="project-modal-close" onclick="closeProjectModal()">&times;</button>
+            <div class="project-modal-grid">
+
+                <!-- Левая часть: Главное изображение + превью карусели -->
+                <div class="project-modal-gallery-side">
+                    <div class="project-modal-media">
+                        <span id="modalBadge" class="project-badge"></span>
+                        <img id="modalImg" src="" alt="Кейс" class="project-modal-img">
+                    </div>
+                    <div class="project-modal-thumbs" id="modalThumbs"></div>
+                </div>
+
+                <!-- Правая часть: Подробная b2b-информация -->
+                <div class="project-modal-info">
+                    <h3 id="modalTitle" class="project-modal-title"></h3>
+                    <div class="project-modal-specs">
+                        <div class="spec-tag"><b>Объем:</b> <span id="modalSpecVolume"></span></div>
+                        <div class="spec-tag"><b>Сроки:</b> <span id="modalSpecDeadline"></span></div>
+                        <div class="spec-tag"><b>Допуск:</b> <span id="modalSpecSecurity"></span></div>
+                        <div class="spec-tag spec-tag-price"><b>Сумма контракта:</b> <span id="modalSpecPrice"></span>
+                        </div>
+                        <div class="spec-tag spec-tag-address"><b>Адрес:</b> <span id="modalSpecAddress"></span></div>
+                    </div>
+                    <div class="project-modal-divider"></div>
+                    <h4 class="project-modal-subtitle">Техническое описание:</h4>
+                    <p id="modalDesc" class="project-modal-text"></p>
+                    <a href="#contact" class="btn btn-sm btn-block" onclick="closeProjectModal()">Обсудить похожий
+                        объект</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+
+
+</body>
+
+</html>
